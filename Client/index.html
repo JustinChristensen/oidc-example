@@ -29,16 +29,29 @@
                 <ul class="list-inline list-unstyled requests">
                     <li><a href="index.html" class="btn btn-primary">Home</a></li>
                     <li><button type="button" class="btn btn-default js-login">Login</button></li>
+                    <li><button type="button" class="btn btn-default js-call-api">Call API</button></li>
+                    <li><button type="button" class="btn btn-danger js-logout">Logout</button></li>
                 </ul>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <!-- Make the existing sections 6-column wide -->
+            <div class="col-xs-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">ID Token Contents</div>
+                    <div class="panel-heading">User data</div>
                     <div class="panel-body">
-                        <pre class="js-id-token"></pre>
+                        <pre class="js-user"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- And add a new one for the result of the API call -->
+            <div class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">API call result</div>
+                    <div class="panel-body">
+                        <pre class="js-api-result"></pre>
                     </div>
                 </div>
             </div>

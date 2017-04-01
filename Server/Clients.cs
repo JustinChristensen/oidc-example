@@ -20,9 +20,21 @@ namespace Server
                     ClientId = "js",
                     Flow = Flows.Implicit,
 
+                    
+                    // default is 1 hour
+                    AccessTokenLifetime = 70,
+                    
+                    // valid redirect URIs
                     RedirectUris = new List<string>()
                     {
-                        "http://localhost:56668/popup.html"
+                        "http://localhost:56668",
+                        "http://localhost:56668/popup.html",
+                        "http://localhost:56668/silent-renew.html"
+                    },
+
+                    PostLogoutRedirectUris = new List<string>()
+                    {
+                        "http://localhost:56668/index.html"
                     },
 
                     AllowedCorsOrigins = new List<string>()
