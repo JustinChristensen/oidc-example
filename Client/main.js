@@ -1,4 +1,5 @@
 ﻿Oidc.Log.logger = console;
+Oidc.Log.level = Oidc.Log.DEBUG;
 
 // helper function to show data to the user
 function display(selector, data) {
@@ -20,9 +21,8 @@ var settings = {
     redirect_uri: 'http://localhost:56668',
 
     // for signing in with a popup
-    popup_redirect_uri: 'http://localhost:56668/popup.html',
     silent_redirect_uri: 'http://localhost:56668/silent-renew.html',
-    post_logout_redirect_uri: 'http://localhost:56668/index.html',
+    post_logout_redirect_uri: 'http://localhost:56668',
 
     response_type: 'id_token token',
     scope: 'openid profile email api',
@@ -35,6 +35,22 @@ var settings = {
 
 var manager = new Oidc.UserManager(settings);
 var user;
+
+if (window.location.hash) {
+    manager.signinRedirectCallback()
+        .then(function() {
+            window.location.replace('#');
+
+            if (typeof window.history.replaceState == 'function') {
+                history.replaceState({}, '', window.location.href.slice(0, -1));
+            }
+        }, function(error) {
+            manager.signinRedirect();
+        });
+}
+else {
+    manager.signinRedirect();
+}
 
 manager.events.addUserLoaded(function (loadedUser) {
     user = loadedUser;
@@ -49,19 +65,13 @@ manager.events.addUserSignedOut(function () {
     alert('The user has signed out');
 });
 
-$('.js-login').on('click', function () {
+//$('.js-login').on('click', function () {
 //    manager
-//        .signinPopup()
+//        .signinRedirect()
 //        .catch(function (error) {
-//            console.error('error while logging in through the popup', error);
+//            console.error('error while signing in', error);
 //        });
-
-    manager
-        .signinRedirect()
-        .catch(function (error) {
-            console.error('error while logging in through the popup', error);
-        });
-});
+//});
 
 $('.js-call-api').on('click', function () {
     var headers = {};

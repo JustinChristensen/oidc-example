@@ -16,25 +16,27 @@ namespace Server
                 new Client()
                 {
                     Enabled = true,
-                    ClientName = "JS Client",
+                    ClientName = "OIDC Implicit Client Application",
+                    ClientUri = "http://localhost:56668",
                     ClientId = "js",
                     Flow = Flows.Implicit,
 
                     
                     // default is 1 hour
-                    AccessTokenLifetime = 70,
+                    AccessTokenLifetime = 30,
                     
-                    // valid redirect URIs
+                    // valid redirect URIs for this client
+                    // when doing things like signing in this is checked
                     RedirectUris = new List<string>()
                     {
                         "http://localhost:56668",
-                        "http://localhost:56668/popup.html",
                         "http://localhost:56668/silent-renew.html"
                     },
 
+                    // redirect uris for logging out
                     PostLogoutRedirectUris = new List<string>()
                     {
-                        "http://localhost:56668/index.html"
+                        "http://localhost:56668"
                     },
 
                     AllowedCorsOrigins = new List<string>()

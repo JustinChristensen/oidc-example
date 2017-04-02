@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 using IdentityServer3.Core.Configuration;
 using Microsoft.Owin;
 using Owin;
@@ -12,11 +11,16 @@ namespace Server
 {
     public class Startup
     {
+        public Startup()
+        {
+            Logging.InitLogging();
+        }
+
         public void Configuration(IAppBuilder app)
         {
             app.UseIdentityServer(new IdentityServerOptions
             {
-                SiteName = "Embedded IdentityServer",
+                SiteName = "Platform OpenId Provider",
                 SigningCertificate = LoadCertificate(),
 
                 Factory = new IdentityServerServiceFactory()

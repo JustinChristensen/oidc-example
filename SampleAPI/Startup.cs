@@ -14,6 +14,12 @@ namespace SampleAPI
     {
         public void Configuration(IAppBuilder app)
         {
+            // roles
+            // client
+            // resource server
+            // resource owner
+            // auth server
+
             // allow all origins
             app.UseCors(CorsOptions.AllowAll);
 

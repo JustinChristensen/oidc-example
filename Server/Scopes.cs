@@ -27,8 +27,8 @@ namespace Server
                 {
                     Name = "api",
 
-                    DisplayName = "API Access",
-                    Description = "This will grant you access to the API",
+                    DisplayName = "Sample API Access",
+                    Description = "This will grant you access to the Sample API",
 
                     ScopeSecrets = new List<Secret>
                     {
