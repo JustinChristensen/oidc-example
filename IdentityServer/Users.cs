@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
-using System.Web;
 using IdentityServer3.Core;
 using IdentityServer3.Core.Services.InMemory;
 
-namespace Server
+namespace OidcTest.IdentityServer
 {
     public static class Users
     {

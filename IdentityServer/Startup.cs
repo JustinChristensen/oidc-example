@@ -3,11 +3,12 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using IdentityServer3.Core.Configuration;
 using Microsoft.Owin;
+using OidcTest.IdentityServer;
 using Owin;
 
-[assembly: OwinStartup(typeof(Server.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace Server
+namespace OidcTest.IdentityServer
 {
     public class Startup
     {

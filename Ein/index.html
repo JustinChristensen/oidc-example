@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ein</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <style>
+        .main-container {
+            padding-top: 70px;
+        }
+
+        pre:empty {
+            display: none;
+        }
+
+        .navbar-inverse {
+            background-color: #008080;
+            border: 0;
+        }
+
+        .navbar-inverse .navbar-brand {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Ein</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="list-inline list-unstyled requests">
+                    <li><a href="index.html" class="btn btn-primary">Home</a></li>
+                    <!--<li><button type="button" class="btn btn-default js-login">Login</button></li>-->
+                    <li><button type="button" class="btn btn-default js-call-api">Call API</button></li>
+                    <li><button type="button" class="btn btn-danger js-logout">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Make the existing sections 6-column wide -->
+            <div class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">User data</div>
+                    <div class="panel-body">
+                        <pre class="js-user"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- And add a new one for the result of the API call -->
+            <div class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">API call result</div>
+                    <div class="panel-body">
+                        <pre class="js-api-result"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/oidc-client/dist/oidc-client.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

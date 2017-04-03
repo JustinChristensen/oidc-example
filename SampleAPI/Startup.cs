@@ -1,14 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Web.Http;
 using IdentityServer3.AccessTokenValidation;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
+using OidcTest.SampleAPI;
 using Owin;
 
-[assembly: OwinStartup(typeof(SampleAPI.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace SampleAPI
+namespace OidcTest.SampleAPI
 {
     public class Startup
     {

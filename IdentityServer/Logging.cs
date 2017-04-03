@@ -1,11 +1,7 @@
 ﻿using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Serilog;
 
-namespace Server
+namespace OidcTest.IdentityServer
 {
     public static class Logging
     {

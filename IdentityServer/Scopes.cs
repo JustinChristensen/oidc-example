@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using IdentityServer3.Core.Models;
 
-namespace Server
+namespace OidcTest.IdentityServer
 {
     public static class Scopes
     {

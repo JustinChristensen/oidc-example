@@ -15,14 +15,14 @@ function display(selector, data) {
 
 var settings = {
     authority: 'https://localhost:44396/',
-    client_id: 'js',
+    client_id: 'zwei',
 
     // for signing in with a redirect
-    redirect_uri: 'http://localhost:56668',
+    redirect_uri: 'http://zwei.devl:54448',
 
     // for signing in with a popup
-    silent_redirect_uri: 'http://localhost:56668/silent-renew.html',
-    post_logout_redirect_uri: 'http://localhost:56668',
+    silent_redirect_uri: 'http://zwei.devl:54448/silent-renew.html',
+    post_logout_redirect_uri: 'http://zwei.devl:54448',
 
     response_type: 'id_token token',
     scope: 'openid profile email api',
@@ -63,15 +63,8 @@ manager.events.addSilentRenewError(function (error) {
 
 manager.events.addUserSignedOut(function () {
     alert('The user has signed out');
+    manager.signinRedirect();
 });
-
-//$('.js-login').on('click', function () {
-//    manager
-//        .signinRedirect()
-//        .catch(function (error) {
-//            console.error('error while signing in', error);
-//        });
-//});
 
 $('.js-call-api').on('click', function () {
     var headers = {};
@@ -80,7 +73,7 @@ $('.js-call-api').on('click', function () {
     }
 
     $.ajax({
-        url: 'http://localhost:60136/values',
+        url: 'http://sample-api.devl:60136/values',
         method: 'GET',
         dataType: 'json',
         headers: headers
